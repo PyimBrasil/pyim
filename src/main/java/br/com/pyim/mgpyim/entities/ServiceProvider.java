@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "service_provider")
 public class ServiceProvider extends User {
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false, name = "Curriculum_URI")
     private String CurriculumURI;
 
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -18,9 +18,9 @@ public class ServiceProvider extends User {
     @Column(nullable = false)
     private String Profession;
 
-    //Associações
+    // Associações
     @ManyToOne
-    @JoinColumn(name="service_id", nullable=false, updatable=false)
+    @JoinColumn(name = "service_id", nullable = false, updatable = false)
     private Service requestService;
 
     public ServiceProvider() {

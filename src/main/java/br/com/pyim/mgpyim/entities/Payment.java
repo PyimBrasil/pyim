@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.pyim.mgpyim.entities.enums.PaymentStatus;
@@ -20,7 +21,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
     private Instant DateTime;
 
     @Column(nullable = false)
@@ -29,6 +30,10 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "block_chain_id", nullable = false, updatable = false)
     private BlockChain blockChain;
+
+    @OneToOne
+    @JoinColumn(name = "smart_contract_id", unique = true, nullable = false)
+    private SmartContract smartContract;
 
     public Payment() {
     }
@@ -63,6 +68,14 @@ public class Payment {
 
     public void setBlockChain(BlockChain blockChain) {
         this.blockChain = blockChain;
+    }
+
+    public SmartContract getSmartContract() {
+        return smartContract;
+    }
+
+    public void setSmartContract(SmartContract smartContract) {
+        this.smartContract = smartContract;
     }
 
     @Override

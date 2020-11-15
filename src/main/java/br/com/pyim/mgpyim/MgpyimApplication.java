@@ -10,5 +10,4 @@ public class MgpyimApplication {
 		SpringApplication.run(MgpyimApplication.class, args);
 	}
 
-
 }

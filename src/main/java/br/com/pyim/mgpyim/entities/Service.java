@@ -1,7 +1,6 @@
 package br.com.pyim.mgpyim.entities;
 
 import java.time.Instant;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,13 +16,13 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false)
     private Instant InitialDateTime;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant FinalDateTime;
 
-    private Date numberHoursOfService;
+    private Integer numberHoursOfService;
 
     public Service() {
     }
@@ -52,11 +51,11 @@ public class Service {
         FinalDateTime = finalDateTime;
     }
 
-    public Date getNumberHoursOfService() {
+    public Integer getNumberHoursOfService() {
         return numberHoursOfService;
     }
 
-    public void setNumberHoursOfService(Date numberHoursOfService) {
+    public void setNumberHoursOfService(Integer numberHoursOfService) {
         this.numberHoursOfService = numberHoursOfService;
     }
 

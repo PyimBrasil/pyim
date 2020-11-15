@@ -13,10 +13,10 @@ import javax.persistence.Table;
 public class Employee extends User{
     private Double salary;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false)
     private Instant AdmissionDate;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant ResignationDate;
     
     @OneToOne(optional=false)

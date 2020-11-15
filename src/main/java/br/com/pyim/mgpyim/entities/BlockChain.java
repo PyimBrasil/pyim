@@ -16,10 +16,10 @@ public class BlockChain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
     private Instant InitialDateTime;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
     private Instant finalDateTime;
 
     public BlockChain() {

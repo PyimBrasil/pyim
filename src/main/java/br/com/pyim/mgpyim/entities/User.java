@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +20,16 @@ public abstract class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false)
     Instant birthdate;
 
     @Column(nullable = false)
     private String phone;
 
+    @Column(unique = true)
     private String CPF;
+
+    @Column(unique = true)
     private String CNPJ;
 
     @Column(nullable = false, unique = true)
