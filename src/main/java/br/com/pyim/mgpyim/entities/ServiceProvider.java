@@ -2,6 +2,8 @@ package br.com.pyim.mgpyim.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,11 @@ public class ServiceProvider extends User {
 
     @Column(nullable = false)
     private String Profession;
+
+    //Associações
+    @ManyToOne
+    @JoinColumn(name="service_id", nullable=false, updatable=false)
+    private Service requestService;
 
     public ServiceProvider() {
         super();

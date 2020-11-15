@@ -2,6 +2,8 @@ package br.com.pyim.mgpyim.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +11,11 @@ import javax.persistence.Table;
 public class Client extends User {
     @Column(nullable = false)
     private Double balanceAmount;
+
+    //Associação 
+    @ManyToOne
+    @JoinColumn(name="service_id", nullable=false, updatable=false)
+    private Service service;
 
     public Client() {
         super();
