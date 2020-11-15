@@ -31,7 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/java/br/com/pyim/mgpyim/entities
 
 ### maven ###
 .DS_Store
