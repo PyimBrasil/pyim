@@ -1,9 +1,13 @@
 package br.com.pyim.mgpyim.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +26,9 @@ public class ServiceProvider extends User {
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Service requestService;
+
+    @OneToMany(mappedBy="service_provider")
+    private List<SmartContract> smartcontracts = new ArrayList<SmartContract>();
 
     public ServiceProvider() {
         super();

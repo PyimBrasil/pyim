@@ -28,7 +28,7 @@ public class Payment {
     private PaymentStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "block_chain_id", nullable = false, updatable = false)
+    @JoinColumn(name = "block_chain_id", nullable = false)
     private BlockChain blockChain;
 
     @OneToOne

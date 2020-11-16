@@ -27,15 +27,15 @@ public class SmartContract {
 
     // Associação
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "service_provider_id", nullable = false, updatable = false)
+    @JoinColumn(name = "service_provider_id", nullable = false)
     private ServiceProvider serviceProvider;
 
     @ManyToOne
-    @JoinColumn(name = "block_chain_id", nullable = false, updatable = false)
+    @JoinColumn(name = "block_chain_id", nullable = false)
     private BlockChain blockChain;
 
     public SmartContract() {

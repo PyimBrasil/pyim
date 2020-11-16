@@ -276,40 +276,100 @@ VALUES (
         'RuaLL',
         '51983243486'
     );
-INSERT INTO service_provider (curriculum_uri, description, profession, id)
+INSERT INTO service(initial_date_time, number_hours_of_service)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        4
+    );
+INSERT INTO service(initial_date_time, number_hours_of_service)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        4
+    );
+INSERT INTO service(initial_date_time, number_hours_of_service)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        4
+    );
+INSERT INTO service(initial_date_time, number_hours_of_service)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        4
+    );
+INSERT INTO service(initial_date_time, number_hours_of_service)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        4
+    );
+INSERT INTO service_provider (
+        curriculum_uri,
+        description,
+        profession,
+        id,
+        service_id
+    )
 VALUES (
         '/curriculum_uri/22172413380',
         'Descrição aqui',
         ' Instalador de bolinhas em desodorante rollon ',
+        1,
         1
     );
-INSERT INTO service_provider (curriculum_uri, description, profession, id)
+INSERT INTO service_provider (
+        curriculum_uri,
+        description,
+        profession,
+        id,
+        service_id
+    )
 VALUES (
         '/curriculum_uri/22172413381',
         'Descrição aqui',
         'juba designer de animais selvagens',
+        2,
         2
     );
-INSERT INTO service_provider (curriculum_uri, description, profession, id)
+INSERT INTO service_provider (
+        curriculum_uri,
+        description,
+        profession,
+        id,
+        service_id
+    )
 VALUES (
         '/curriculum_uri/22172413382',
         'Descrição aqui',
         'degustador de creme dental',
+        3,
         3
     );
-INSERT INTO service_provider (curriculum_uri, description, profession, id)
+INSERT INTO service_provider (
+        curriculum_uri,
+        description,
+        profession,
+        id,
+        service_id
+    )
 VALUES (
         '/curriculum_uri/22172413330',
         'Descrição aqui',
         'furador de bola de boliche',
+        4,
         4
     );
-INSERT INTO service_provider (curriculum_uri, description, profession, id)
+INSERT INTO service_provider (
+        curriculum_uri,
+        description,
+        profession,
+        id,
+        service_id
+    )
 VALUES (
         '/curriculum_uri/22172413480',
         'Descrição aqui',
         'gerente umidecedor de selos',
-        5
+        5,
+        1
     );
 INSERT INTO client (balance_amount, id)
 VALUES (0, 6);
@@ -404,4 +464,88 @@ VALUES (
         29,
         2
     );
--- SELECT * FROM USER JOIN SERVICE_PROVIDER on USER.ID = SERVICE_PROVIDER.ID;
+INSERT INTO block_chain (initial_date_time, final_date_time)
+VALUES(
+        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
+        TIMESTAMP WITH TIME ZONE '2020-12-16T00:00:00.12345Z'
+    );
+INSERT INTO smart_contract (
+        contract_value,
+        contracted_signature,
+        customer_signature,
+        block_chain_id,
+        service_provider_id,
+        user_id
+    )
+VALUES(
+        100.0,
+        'assinaturaDoServiceProvider',
+        'assinaturaDoUser',
+        1,
+        1,
+        6
+    );
+INSERT INTO smart_contract (
+        contract_value,
+        contracted_signature,
+        customer_signature,
+        block_chain_id,
+        service_provider_id,
+        user_id
+    )
+VALUES(
+        100.0,
+        'assinaturaDoServiceProvider',
+        'assinaturaDoUser',
+        1,
+        2,
+        7
+    );
+INSERT INTO smart_contract (
+        contract_value,
+        contracted_signature,
+        customer_signature,
+        block_chain_id,
+        service_provider_id,
+        user_id
+    )
+VALUES(
+        100.0,
+        'assinaturaDoServiceProvider',
+        'assinaturaDoUser',
+        1,
+        3,
+        6
+    );
+INSERT INTO smart_contract (
+        contract_value,
+        contracted_signature,
+        customer_signature,
+        block_chain_id,
+        service_provider_id,
+        user_id
+    )
+VALUES(
+        100.0,
+        'assinaturaDoServiceProvider',
+        'assinaturaDoUser',
+        1,
+        4,
+        8
+    );
+INSERT INTO smart_contract (
+        contract_value,
+        contracted_signature,
+        customer_signature,
+        block_chain_id,
+        service_provider_id,
+        user_id
+    )
+VALUES(
+        100.0,
+        'assinaturaDoServiceProvider',
+        'assinaturaDoUser',
+        1,
+        5,
+        9
+    );

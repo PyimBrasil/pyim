@@ -1,6 +1,8 @@
 package br.com.pyim.mgpyim.entities;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -37,6 +40,9 @@ public abstract class User {
 
     @Column(nullable = false)
     private String endereco;
+
+    @OneToMany(mappedBy="user")
+    private List<SmartContract> smartcontracts = new ArrayList<SmartContract>();
 
     public User() {
     }
