@@ -14,7 +14,7 @@ public class Client extends User {
 
     //Associação 
     @ManyToOne
-    @JoinColumn(name="service_id", nullable=false, updatable=false)
+    @JoinColumn(name="service_id")
     private Service service;
 
     public Client() {

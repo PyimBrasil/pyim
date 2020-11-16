@@ -20,7 +20,7 @@ public class ServiceProvider extends User {
 
     // Associações
     @ManyToOne
-    @JoinColumn(name = "service_id", nullable = false, updatable = false)
+    @JoinColumn(name = "service_id")
     private Service requestService;
 
     public ServiceProvider() {

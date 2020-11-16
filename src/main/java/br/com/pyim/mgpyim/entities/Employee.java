@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 public class Employee extends User{
+    @Column(nullable = false)
     private Double salary;
 
     @Column(columnDefinition = "TIMESTAMP", nullable = false)
@@ -19,8 +20,8 @@ public class Employee extends User{
     @Column(columnDefinition = "TIMESTAMP")
     private Instant ResignationDate;
     
-    @OneToOne(optional=false)
-    @JoinColumn(name="role_id", unique=true, nullable=false)
+    @OneToOne()
+    @JoinColumn(name="role_id", nullable=false,unique = false)
     private Role role;
     
     public Employee() {
