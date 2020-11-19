@@ -1,6 +1,6 @@
 package br.com.pyim.mgpyim.entities;
 
-import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,13 +16,14 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
-    private Instant InitialDateTime;
+    @Column(nullable = false)
+    private Date initialDateTime;
 
-    @Column(columnDefinition = "TIMESTAMP")
-    private Instant FinalDateTime;
-
+    private Date finalDateTime;
     private Integer numberHoursOfService;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
 
     public Service() {
     }
@@ -35,20 +36,20 @@ public class Service {
         this.id = id;
     }
 
-    public Instant getInitialDateTime() {
-        return InitialDateTime;
+    public Date getInitialDateTime() {
+        return initialDateTime;
     }
 
-    public void setInitialDateTime(Instant initialDateTime) {
-        InitialDateTime = initialDateTime;
+    public void setInitialDateTime(Date initialDateTime) {
+        this.initialDateTime = initialDateTime;
     }
 
-    public Instant getFinalDateTime() {
-        return FinalDateTime;
+    public Date getFinalDateTime() {
+        return finalDateTime;
     }
 
-    public void setFinalDateTime(Instant finalDateTime) {
-        FinalDateTime = finalDateTime;
+    public void setFinalDateTime(Date finalDateTime) {
+        this.finalDateTime = finalDateTime;
     }
 
     public Integer getNumberHoursOfService() {
@@ -57,6 +58,14 @@ public class Service {
 
     public void setNumberHoursOfService(Integer numberHoursOfService) {
         this.numberHoursOfService = numberHoursOfService;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

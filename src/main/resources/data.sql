@@ -276,30 +276,55 @@ VALUES (
         'RuaLL',
         '51983243486'
     );
-INSERT INTO service(initial_date_time, number_hours_of_service)
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description
+    )
 VALUES(
-        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
-        4
+        '2020-11-16',
+        3,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
     );
-INSERT INTO service(initial_date_time, number_hours_of_service)
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description
+    )
 VALUES(
-        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
-        4
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
     );
-INSERT INTO service(initial_date_time, number_hours_of_service)
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description
+    )
 VALUES(
-        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
-        4
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
     );
-INSERT INTO service(initial_date_time, number_hours_of_service)
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description
+    )
 VALUES(
-        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
-        4
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
     );
-INSERT INTO service(initial_date_time, number_hours_of_service)
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description
+    )
 VALUES(
-        TIMESTAMP WITH TIME ZONE '2020-11-16T00:00:00.12345Z',
-        4
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
     );
 INSERT INTO service_provider (
         curriculum_uri,
