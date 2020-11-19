@@ -41,7 +41,7 @@ public class EmployeeController {
 	@GetMapping
 	public String employeeHome(Model model) {
 		List<Employee> employeeAll = employeeRepository.findAll();
-		model.addAttribute("name", "Employee");
+		model.addAttribute("name", "Employee ");
 		model.addAttribute("listAllEmployee", employeeAll);
 		return "employee\\employee";
 	}
@@ -52,11 +52,12 @@ public class EmployeeController {
 		mav.setViewName("employee\\employee-create");
 		mav.addObject("command", new Employee());
 		mav.addObject("roles", roleRepository.findAll());
+		mav.addObject("name", "Employee ");
 		return mav;
 	}
 
-	@RequestMapping(value = "/create/addEmployee", method = RequestMethod.POST)
-	public String employeeCreateSubmit(@ModelAttribute Employee employee, ModelMap model) {
+	@RequestMapping(value = "/create/result", method = RequestMethod.POST)
+	public String employeeCreateResult(@ModelAttribute Employee employee, ModelMap model) {
 		// if (bindingResult.hasErrors()) {
 		try {
 			employee = employeeRepository.save(employee);

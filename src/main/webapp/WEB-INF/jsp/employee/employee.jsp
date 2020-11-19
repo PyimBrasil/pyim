@@ -12,7 +12,6 @@
 				<a type="button" class="btn btn-outline-info mr-1" href="/reports">Reports</a>
 				<a type="button" class="btn btn-outline-primary" href="/employee/create">Create employee</a>
 			</div>
-
 		</div>
 		<table class="table table-striped table-hover table-borderless mt-3">
 			<thead class="thead-dark">
