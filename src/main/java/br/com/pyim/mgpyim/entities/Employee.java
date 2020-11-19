@@ -1,6 +1,7 @@
 package br.com.pyim.mgpyim.entities;
 
 import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "employee")
 public class Employee extends User{
     @Column(nullable = false)
     private Double salary;
 
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
-    private Instant AdmissionDate;
+    @Column(nullable = false)
+    private Date AdmissionDate;
 
     @Column(columnDefinition = "TIMESTAMP")
     private Instant ResignationDate;
@@ -44,11 +47,11 @@ public class Employee extends User{
 		this.role = role;
 	}
 
-	public Instant getAdmissionDate() {
+	public Date getAdmissionDate() {
 		return AdmissionDate;
 	}
 
-	public void setAdmissionDate(Instant admissionDate) {
+	public void setAdmissionDate(Date admissionDate) {
 		AdmissionDate = admissionDate;
 	}
 

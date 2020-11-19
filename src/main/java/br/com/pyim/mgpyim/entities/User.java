@@ -1,7 +1,7 @@
 package br.com.pyim.mgpyim.entities;
 
-import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,6 +13,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
@@ -23,8 +25,8 @@ public abstract class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
-    Instant birthdate;
+    @Column(nullable = false)
+    private Date birthdate;
 
     @Column(nullable = false)
     private String phone;
@@ -39,7 +41,7 @@ public abstract class User {
     private String email;
 
     @Column(nullable = false)
-    private String endereco;
+    private String address;
 
     @OneToMany(mappedBy="user")
     private List<SmartContract> smartcontracts = new ArrayList<SmartContract>();
@@ -63,11 +65,11 @@ public abstract class User {
         this.name = name;
     }
 
-    public Instant getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Instant birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -103,12 +105,12 @@ public abstract class User {
         this.email = email;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getAddress() {
+        return address;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setAddress(String endereco) {
+        this.address = endereco;
     }
 
     @Override
