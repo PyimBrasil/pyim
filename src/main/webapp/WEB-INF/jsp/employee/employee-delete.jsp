@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <tags:_template>
-    <h4 Class="my-4 text-center">${status}</h4>
+    <h4 Class="my-4 text-center">Delete Employee</h4>
     <div class="container d-flex justify-content-around align-items-center">
         <div class="align-self-center">
             <c:choose>
@@ -73,7 +73,7 @@
                 <c:when test="${status == 'NO_CONTENT'}">
                     <div class="d-flex justify-content-center">
                         <div class="bg-success border border-dark rounded p-4" style="max-width: 800px;">
-                            <p class="text-center text-wrap text-white">$DELETE SUCCESS</p>
+                            <p class="text-center text-wrap text-white">DELETE SUCCESS</p>
                         </div>
                     </div>
                 </c:when>

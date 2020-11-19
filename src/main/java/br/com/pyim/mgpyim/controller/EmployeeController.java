@@ -5,11 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.pyim.mgpyim.controller.exceptions.project.DataBaseException;
+import br.com.pyim.mgpyim.controller.exceptions.project.ResourceNotFoundException;
 import br.com.pyim.mgpyim.entities.Employee;
 import br.com.pyim.mgpyim.repositories.EmployeeRepository;
 import br.com.pyim.mgpyim.repositories.RoleRepository;
@@ -82,10 +81,10 @@ public class EmployeeController {
 		mav.setViewName("employee\\employee-delete");
 		try {
 			Optional<Employee> obj = employeeRepository.findById(id);
-			Employee entity = obj.orElseThrow(() -> new EntityNotFoundException("User not found"));
+			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
 			mav.addObject("employee", entity );
 			mav.addObject("status",HttpStatus.ACCEPTED);
-		} catch (EntityNotFoundException e) {
+		} catch (ResourceNotFoundException e) {
 			mav.addObject("status",HttpStatus.NOT_FOUND);
 			mav.addObject("error", e.getMessage());
 		}
@@ -99,7 +98,7 @@ public class EmployeeController {
 		try {
 			employeeRepository.deleteById(id);
 			mav.addObject("status",HttpStatus.NO_CONTENT);
-        } catch (DataIntegrityViolationException e) {
+        } catch (DataBaseException e) {
 			mav.addObject("status",HttpStatus.BAD_REQUEST);
 			mav.addObject("error", e.getMessage());
         }
