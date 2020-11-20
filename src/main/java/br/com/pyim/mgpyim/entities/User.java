@@ -13,8 +13,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {

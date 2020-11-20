@@ -41,6 +41,7 @@ public class EmployeeController {
 		dateFormatter.setLenient(false);
 		binder.registerCustomEditor(Date.class, "birthdate", new CustomDateEditor(dateFormatter, true, 10));
 		binder.registerCustomEditor(Date.class, "admissionDate", new CustomDateEditor(dateFormatter, true, 10));
+		binder.registerCustomEditor(Date.class, "resignationDate", new CustomDateEditor(dateFormatter, true, 10));
 	}
 
 	@GetMapping
@@ -62,17 +63,18 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/create/result", method = RequestMethod.POST)
-	public String employeeCreateResult(@ModelAttribute Employee employee, ModelMap model) {
-		// if (bindingResult.hasErrors()) {
+	public ModelAndView employeeCreateResult(@ModelAttribute Employee employee, ModelMap model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("employee\\employee-create-result");
 		try {
 			employee = employeeRepository.save(employee);
-			model.addAttribute("employee", employee);
-			model.addAttribute("status", "was created");
+			mav.addObject("employee", employee);
+			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
-			model.addAttribute("status", "was not created");
-			model.addAttribute("erro", e.getMessage());
+			mav.addObject("status", HttpStatus.BAD_REQUEST);
+			mav.addObject("error", e.getMessage());
 		}
-		return "employee\\employee-create-result";
+		return mav;
 	}
 
 	@GetMapping(value = "/delete/{id}")
@@ -82,26 +84,59 @@ public class EmployeeController {
 		try {
 			Optional<Employee> obj = employeeRepository.findById(id);
 			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
-			mav.addObject("employee", entity );
-			mav.addObject("status",HttpStatus.ACCEPTED);
+			mav.addObject("employee", entity);
+			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-			mav.addObject("status",HttpStatus.NOT_FOUND);
+			mav.addObject("status", HttpStatus.NOT_FOUND);
 			mav.addObject("error", e.getMessage());
 		}
 		return mav;
 	}
-	
+
 	@GetMapping(value = "/delete/{id}/result")
-	public ModelAndView employeeDeleteResult(@PathVariable Long id ) {
+	public ModelAndView employeeDeleteResult(@PathVariable Long id) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("employee\\employee-delete");
 		try {
 			employeeRepository.deleteById(id);
-			mav.addObject("status",HttpStatus.NO_CONTENT);
-        } catch (DataBaseException e) {
-			mav.addObject("status",HttpStatus.BAD_REQUEST);
+			mav.addObject("status", HttpStatus.NO_CONTENT);
+		} catch (DataBaseException e) {
+			mav.addObject("status", HttpStatus.BAD_REQUEST);
 			mav.addObject("error", e.getMessage());
-        }
+		}
+		return mav;
+	}
+
+	@RequestMapping(value = "/edit/{id}")
+	public ModelAndView employeeEdit(@PathVariable Long id) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("employee\\employee-update");
+		try {
+			Optional<Employee> obj = employeeRepository.findById(id);
+			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			mav.addObject("command", entity);
+			mav.addObject("status", HttpStatus.OK);
+			mav.addObject("roles", roleRepository.findAll());
+		} catch (ResourceNotFoundException e) {
+			mav.addObject("status", HttpStatus.NOT_FOUND);
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
+	}
+
+	@RequestMapping(value = "/edit/{id}/result", method = RequestMethod.POST)
+	public ModelAndView employeeEditResult(@ModelAttribute Employee employee) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("employee\\employee-update");
+		try {
+			employee = employeeRepository.save(employee);
+			mav.addObject("employee", employee);
+			mav.addObject("status", HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			// validação
+			mav.addObject("status", HttpStatus.BAD_REQUEST);
+			mav.addObject("error", e.getMessage());
+		}
 		return mav;
 	}
 }

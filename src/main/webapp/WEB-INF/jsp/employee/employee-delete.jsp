@@ -8,7 +8,7 @@
     <div class="container d-flex justify-content-around align-items-center">
         <div class="align-self-center">
             <c:choose>
-                <c:when test="${status == 'ACCEPTED'}">
+                <c:when test="${status == 'OK'}">
                     <div class="d-flex justify-content-center">
                         <div class="bg-info border border-dark rounded p-4 text-white">
                             <p style="font-size: 20px; text-align: center; ">
@@ -80,7 +80,7 @@
                 <c:when test="${status == 'BAD_REQUEST'}">
                     <div class="d-flex justify-content-center">
                         <div class="bg-danger border border-dark rounded p-4" style="max-width: 800px;">
-                            <p class="text-center text-wrap text-white">${status} - delete success</p>
+                            <p class="text-center text-wrap text-white">${status}</p>
                             <p class="text-center text-wrap text-white">${error}</p>
 
                         </div>

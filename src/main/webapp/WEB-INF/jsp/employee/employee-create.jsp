@@ -58,8 +58,8 @@
 					<div class="form-group mb-2">
 						<form:label path="role.id">Role</form:label>
 						<form:select name="role.id" class="form-control" path="role.id" aria-describedby="role.id">
-							<c:forEach var="role" items="${roles}">
-								<option value="${role.id}">${role.description}</option>
+							<c:forEach var="item" items="${roles}">
+								<option value="${item.id}">${item.description}</option>
 							</c:forEach>
 						</form:select>
 					</div>
