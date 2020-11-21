@@ -82,6 +82,9 @@ public class ClientController {
 		try {
 			client = clientRepository.save(client);
 			mav.addObject("command", client);
+			mav.addObject("nameResource", "Client");
+            mav.addObject("linkResource", "/client/"+client.getId());
+            mav.addObject("returnName", "client");
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			mav.setViewName("errors\\badRequest");

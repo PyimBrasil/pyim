@@ -72,59 +72,51 @@
                     </div>
                 </c:when>
                 <c:when test="${status == 'ACCEPTED'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-success border border-dark rounded p-4 text-white">
-                            <p style="font-size: 20px; text-align: center; ">
-                                Client data:
-                            </p>
-                            <p>
-                                Id:
-                                <c:out value="${client.id}" /><br>
-                                Name:
-                                <c:out value="${client.name}" /><br>
-                                Birth Date:
-                                <fmt:formatDate value="${client.birthdate}" type="date" pattern="dd/MM/yyyy"
-                                    var="birthdate" />
-                                <c:out value="${birthdate}" /><br>
-                                Phone:
-                                <c:out value="${client.phone}" /><br>
-                                Email:
-                                <c:out value="${client.email}" /><br>
-                                CPF:
-                                <c:choose>
-                                    <c:when test="${client.CPF != null}">
-                                        <c:out value="${client.CPF}" />
-                                    </c:when>
-                                    <c:when test="${client.CPF == null}">
-                                        Not listed
-                                    </c:when>
-                                    <c:otherwise>
-                                        Not listed or unexpected error
-                                    </c:otherwise>
-                                </c:choose>
-                                <br>
-                                CNPJ:<c:choose>
-                                    <c:when test="${client.CNPJ != null}">
-                                        <c:out value="${client.CNPJ}" />
-                                    </c:when>
-                                    <c:when test="${client.CNPJ == null}">
-                                        Not listed
-                                    </c:when>
-                                    <c:otherwise>
-                                        Not listed or unexpected error
-                                    </c:otherwise>
-                                </c:choose>
-                                <br>
-                                Address:
-                                <c:out value="${client.address}" /><br>
-                                Balance Amount:
-                                <c:out value="${client.balanceAmount}" /><br>
-                            </p>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-secondary btn-lg" href="/client/${client.id}">Return</a>
-                        </div>
-                    </div>
+                    <tags:_accepted>
+                        <p>
+                            Id:
+                            <c:out value="${client.id}" /><br>
+                            Name:
+                            <c:out value="${client.name}" /><br>
+                            Birth Date:
+                            <fmt:formatDate value="${client.birthdate}" type="date" pattern="dd/MM/yyyy"
+                                var="birthdate" />
+                            <c:out value="${birthdate}" /><br>
+                            Phone:
+                            <c:out value="${client.phone}" /><br>
+                            Email:
+                            <c:out value="${client.email}" /><br>
+                            CPF:
+                            <c:choose>
+                                <c:when test="${client.CPF != null}">
+                                    <c:out value="${client.CPF}" />
+                                </c:when>
+                                <c:when test="${client.CPF == null}">
+                                    Not listed
+                                </c:when>
+                                <c:otherwise>
+                                    Not listed or unexpected error
+                                </c:otherwise>
+                            </c:choose>
+                            <br>
+                            CNPJ:<c:choose>
+                                <c:when test="${client.CNPJ != null}">
+                                    <c:out value="${client.CNPJ}" />
+                                </c:when>
+                                <c:when test="${client.CNPJ == null}">
+                                    Not listed
+                                </c:when>
+                                <c:otherwise>
+                                    Not listed or unexpected error
+                                </c:otherwise>
+                            </c:choose>
+                            <br>
+                            Address:
+                            <c:out value="${client.address}" /><br>
+                            Balance Amount:
+                            <c:out value="${client.balanceAmount}" /><br>
+                        </p>
+                    </tags:_accepted>
                 </c:when>
                 <c:otherwise>
                     <div class="d-flex justify-content-center">
@@ -135,7 +127,5 @@
                 </c:otherwise>
             </c:choose>
         </div>
-
-
     </div>
 </tags:_template>
