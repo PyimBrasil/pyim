@@ -20,7 +20,7 @@
 							<div>
 								<ul style="font-size: 17px;" class="list-group">
 									<li class="list-group-item bg-primary">
-										<a class="text-white" href="service/create/${client.id}">Request
+										<a class="text-white" href="/client/${client.id}/service/create">Request
 											service</a>
 									</li>
 									<li class="list-group-item">
