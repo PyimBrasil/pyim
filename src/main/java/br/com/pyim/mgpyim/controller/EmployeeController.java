@@ -71,8 +71,11 @@ public class EmployeeController {
 			mav.addObject("employee", employee);
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
-			mav.addObject("status", HttpStatus.BAD_REQUEST);
-			mav.addObject("error", e.getMessage());
+			mav.setViewName("errors\\badRequest");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Create");
+            mav.addObject("returnName", "create employee");
+            mav.addObject("linkResource", "/employee/create");
 		}
 		return mav;
 	}
@@ -104,8 +107,11 @@ public class EmployeeController {
 			employeeRepository.deleteById(id);
 			mav.addObject("status", HttpStatus.NO_CONTENT);
 		} catch (DataBaseException e) {
-			mav.addObject("status", HttpStatus.BAD_REQUEST);
-			mav.addObject("error", e.getMessage());
+			mav.setViewName("errors\\badRequest");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Delete");
+            mav.addObject("returnName", "delete employee");
+            mav.addObject("linkResource", "/employee/delete/"+id);
 		}
 		return mav;
 	}
@@ -140,8 +146,12 @@ public class EmployeeController {
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			// validação
-			mav.addObject("status", HttpStatus.BAD_REQUEST);
-			mav.addObject("error", e.getMessage());
+
+			mav.setViewName("errors\\badRequest");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Edit");
+            mav.addObject("returnName", "edit employee");
+            mav.addObject("linkResource", "/employee/edit/"+employee.getId());
 		}
 		return mav;
 	}
