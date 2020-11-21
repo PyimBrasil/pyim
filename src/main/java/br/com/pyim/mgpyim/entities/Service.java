@@ -28,13 +28,12 @@ public class Service {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="client_id", nullable=false)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name="service_provider_id")
+    @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
-    
 
     public Service() {
     }
@@ -77,6 +76,22 @@ public class Service {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public ServiceProvider getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(ServiceProvider serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
 
     @Override

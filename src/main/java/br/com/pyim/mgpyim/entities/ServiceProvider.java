@@ -7,8 +7,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -57,5 +55,21 @@ public class ServiceProvider extends User {
 
     public void setProfession(String profession) {
         Profession = profession;
+    }
+
+    public Set<Service> getRequestServices() {
+        return requestServices;
+    }
+
+    public void setRequestServices(Set<Service> requestServices) {
+        this.requestServices = requestServices;
+    }
+
+    public List<SmartContract> getSmartcontracts() {
+        return smartcontracts;
+    }
+
+    public void setSmartcontracts(List<SmartContract> smartcontracts) {
+        this.smartcontracts = smartcontracts;
     }
 }
