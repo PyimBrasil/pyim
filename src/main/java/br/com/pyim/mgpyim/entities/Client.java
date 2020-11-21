@@ -1,9 +1,13 @@
 package br.com.pyim.mgpyim.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,9 +17,8 @@ public class Client extends User {
     private Double balanceAmount;
 
     //Associação 
-    @ManyToOne
-    @JoinColumn(name="service_id")
-    private Service service;
+    @OneToMany(mappedBy="client")
+    private Set<Service> service = new HashSet<Service>();
 
     public Client() {
         super();

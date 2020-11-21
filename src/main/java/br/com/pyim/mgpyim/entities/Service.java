@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +26,15 @@ public class Service {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="client_id", nullable=false)
+    private Client client;
+
+    @ManyToOne
+    @JoinColumn(name="service_provider_id")
+    private ServiceProvider serviceProvider;
+    
 
     public Service() {
     }

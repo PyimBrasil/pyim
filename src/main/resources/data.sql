@@ -276,125 +276,65 @@ VALUES (
         'RuaLL',
         '51983243486'
     );
-INSERT INTO service(
-        initial_date_time,
-        number_hours_of_service,
-        description
-    )
-VALUES(
-        '2020-11-16',
-        3,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
-    );
-INSERT INTO service(
-        initial_date_time,
-        number_hours_of_service,
-        description
-    )
-VALUES(
-        '2020-11-16',
-        4,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
-    );
-INSERT INTO service(
-        initial_date_time,
-        number_hours_of_service,
-        description
-    )
-VALUES(
-        '2020-11-16',
-        4,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
-    );
-INSERT INTO service(
-        initial_date_time,
-        number_hours_of_service,
-        description
-    )
-VALUES(
-        '2020-11-16',
-        4,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
-    );
-INSERT INTO service(
-        initial_date_time,
-        number_hours_of_service,
-        description
-    )
-VALUES(
-        '2020-11-16',
-        4,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.'
-    );
 INSERT INTO service_provider (
         curriculum_uri,
         description,
         profession,
-        id,
-        service_id
+        id
     )
 VALUES (
         '/curriculum_uri/22172413380',
         'Descrição aqui',
         ' Instalador de bolinhas em desodorante rollon ',
-        1,
         1
     );
 INSERT INTO service_provider (
         curriculum_uri,
         description,
         profession,
-        id,
-        service_id
+        id
     )
 VALUES (
         '/curriculum_uri/22172413381',
         'Descrição aqui',
         'juba designer de animais selvagens',
-        2,
         2
     );
 INSERT INTO service_provider (
         curriculum_uri,
         description,
         profession,
-        id,
-        service_id
+        id
     )
 VALUES (
         '/curriculum_uri/22172413382',
         'Descrição aqui',
         'degustador de creme dental',
-        3,
         3
     );
 INSERT INTO service_provider (
         curriculum_uri,
         description,
         profession,
-        id,
-        service_id
+        id
     )
 VALUES (
         '/curriculum_uri/22172413330',
         'Descrição aqui',
         'furador de bola de boliche',
-        4,
         4
     );
 INSERT INTO service_provider (
         curriculum_uri,
         description,
         profession,
-        id,
-        service_id
+        id
     )
 VALUES (
         '/curriculum_uri/22172413480',
         'Descrição aqui',
         'gerente umidecedor de selos',
-        5,
-        1
+        5
     );
 INSERT INTO client (balance_amount, id)
 VALUES (0, 6);
@@ -488,6 +428,66 @@ VALUES (
         '2020-11-15',
         29,
         2
+    );
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description,
+        client_id
+    )
+VALUES(
+        '2020-11-16',
+        3,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
+        6
+    );
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description,
+        client_id
+    )
+VALUES(
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
+        7
+    );
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description,
+        client_id
+    )
+VALUES(
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
+        8
+    );
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description,
+        client_id
+    )
+VALUES(
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
+        9
+    );
+INSERT INTO service(
+        initial_date_time,
+        number_hours_of_service,
+        description,
+        client_id
+    )
+VALUES(
+        '2020-11-16',
+        4,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
+        10
     );
 INSERT INTO block_chain (initial_date_time, final_date_time)
 VALUES(

@@ -1,7 +1,9 @@
 package br.com.pyim.mgpyim.entities;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +25,8 @@ public class ServiceProvider extends User {
     private String Profession;
 
     // Associações
-    @ManyToOne
-    @JoinColumn(name = "service_id")
-    private Service requestService;
+    @OneToMany
+    private Set<Service> requestServices = new HashSet<Service>();
 
     @OneToMany(mappedBy="service_provider")
     private List<SmartContract> smartcontracts = new ArrayList<SmartContract>();
