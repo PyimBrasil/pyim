@@ -147,8 +147,8 @@
                                 Resignation Date:
                                 <c:choose>
                                     <c:when test="${employee.resignationDate != null}">
-                                        <fmt:formatDate value="${employee.resignationDate}" type="date" pattern="dd/MM/yyyy"
-                                    var="resignationDate" />
+                                        <fmt:formatDate value="${employee.resignationDate}" type="date"
+                                            pattern="dd/MM/yyyy" var="resignationDate" />
                                         <c:out value="${resignationDate}" />
                                     </c:when>
                                     <c:when test="${employee.resignationDate == null}">
@@ -168,13 +168,6 @@
                     <div class="d-flex justify-content-center">
                         <div class="bg-danger border border-dark rounded p-4" style="max-width: 800px;">
                             <p class="text-center text-wrap text-white">${status}</p>
-                            <p class="text-center text-wrap text-white">${error}</p>
-                        </div>
-                    </div>
-                </c:when>
-                <c:when test="${status == 'NOT_FOUND'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-danger border border-dark rounded p-4" style="max-width: 800px;">
                             <p class="text-center text-wrap text-white">${error}</p>
                         </div>
                     </div>

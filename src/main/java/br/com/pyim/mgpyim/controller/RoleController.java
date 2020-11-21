@@ -55,7 +55,6 @@ public class RoleController {
         }
         return mav;
     }
-    
 
     @GetMapping(value = "/delete/{id}")
     public ModelAndView roleDelete(@PathVariable int id) {
@@ -67,8 +66,11 @@ public class RoleController {
             mav.addObject("role", entity);
             mav.addObject("status", HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
-            mav.addObject("status", HttpStatus.NOT_FOUND);
+            mav.setViewName("errors\\notFoundResource");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "Role");
+            mav.addObject("linkResource", "/role");
         }
         return mav;
     }
@@ -97,8 +99,11 @@ public class RoleController {
             mav.addObject("command", entity);
             mav.addObject("status", HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
-            mav.addObject("status", HttpStatus.NOT_FOUND);
+            mav.setViewName("errors\\notFoundResource");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "Role");
+            mav.addObject("linkResource", "/role");
         }
         return mav;
     }

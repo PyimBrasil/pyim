@@ -47,8 +47,11 @@ public class ClientController {
 			mav.addObject("listServices", entity.getService());
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-			mav.addObject("status", HttpStatus.NOT_FOUND);
+            mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
+			mav.addObject("nameResource", "Client");
+			mav.addObject("returnName", "Home");
+			mav.addObject("linkResource", "/");
 		}
 		return mav;
 	}
@@ -59,13 +62,15 @@ public class ClientController {
 		mav.setViewName("client\\client-update");
 		try {
 			Optional<Client> obj = clientRepository.findById(id);
-			Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("Client not found"));
 			mav.addObject("command", entity);
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-			mav.addObject("status", HttpStatus.NOT_FOUND);
-
+            mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
+			mav.addObject("nameResource", "Client");
+			mav.addObject("returnName", "Home");
+			mav.addObject("linkResource", "/");
 		}
 		return mav;
 	}

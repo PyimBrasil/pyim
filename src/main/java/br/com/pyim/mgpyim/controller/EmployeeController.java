@@ -83,12 +83,15 @@ public class EmployeeController {
 		mav.setViewName("employee\\employee-delete");
 		try {
 			Optional<Employee> obj = employeeRepository.findById(id);
-			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
 			mav.addObject("employee", entity);
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-			mav.addObject("status", HttpStatus.NOT_FOUND);
+			mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
+			mav.addObject("nameResource", "Employee");
+			mav.addObject("returnName", "Employee");
+			mav.addObject("linkResource", "/employee");
 		}
 		return mav;
 	}
@@ -113,13 +116,16 @@ public class EmployeeController {
 		mav.setViewName("employee\\employee-update");
 		try {
 			Optional<Employee> obj = employeeRepository.findById(id);
-			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
 			mav.addObject("command", entity);
 			mav.addObject("status", HttpStatus.OK);
 			mav.addObject("roles", roleRepository.findAll());
 		} catch (ResourceNotFoundException e) {
-			mav.addObject("status", HttpStatus.NOT_FOUND);
+			mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
+			mav.addObject("nameResource", "Employee");
+			mav.addObject("returnName", "Employee");
+			mav.addObject("linkResource", "/employee");
 		}
 		return mav;
 	}

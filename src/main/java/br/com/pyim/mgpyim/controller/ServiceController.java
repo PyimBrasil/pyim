@@ -53,8 +53,11 @@ public class ServiceController {
             mav.addObject("status", HttpStatus.OK);
 
         } catch (ResourceNotFoundException e) {
-            mav.addObject("status", HttpStatus.NOT_FOUND);
+            mav.setViewName("errors\\notFoundResource");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Client");
+            mav.addObject("returnName", "Home");
+            mav.addObject("linkResource", "/");
         }
         return mav;
     }
@@ -64,7 +67,7 @@ public class ServiceController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("service\\service-create");
         try {
-            service = serviceRepository. save(service);
+            service = serviceRepository.save(service);
             mav.addObject("service", service);
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
