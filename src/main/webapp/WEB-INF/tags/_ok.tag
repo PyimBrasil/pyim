@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 
 <div class="d-flex justify-content-center">
-    <div class="alert alert-info" role="alert" style="width: 500px;">
+    <div class="alert alert-info" role="alert" style="min-width: 500px;">
         <h4 class="alert-heading">${nameResource} data:</h4>
         <jsp:doBody />
         <hr>

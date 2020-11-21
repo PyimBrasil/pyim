@@ -69,6 +69,9 @@ public class EmployeeController {
 		try {
 			employee = employeeRepository.save(employee);
 			mav.addObject("employee", employee);
+			mav.addObject("nameResource", "Employee");
+            mav.addObject("linkResource", "/employee");
+            mav.addObject("returnName", "employee");
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			mav.setViewName("errors\\badRequest");
@@ -88,6 +91,10 @@ public class EmployeeController {
 			Optional<Employee> obj = employeeRepository.findById(id);
 			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
 			mav.addObject("employee", entity);
+			mav.addObject("nameResource", "Employee");
+            mav.addObject("linkResource", "/employee/delete/" + id + "/result");
+            mav.addObject("linkReturn", "/employee");
+            mav.addObject("returnName", "Delete");
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
 			mav.setViewName("errors\\notFoundResource");
@@ -105,6 +112,10 @@ public class EmployeeController {
 		mav.setViewName("employee\\employee-delete");
 		try {
 			employeeRepository.deleteById(id);
+			mav.addObject("resource", "Delete");
+            mav.addObject("nameResource", "Employee");
+            mav.addObject("returnName", "employee");
+            mav.addObject("linkResource", "/employee");
 			mav.addObject("status", HttpStatus.NO_CONTENT);
 		} catch (DataBaseException e) {
 			mav.setViewName("errors\\badRequest");
@@ -124,8 +135,8 @@ public class EmployeeController {
 			Optional<Employee> obj = employeeRepository.findById(id);
 			Employee entity = obj.orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
 			mav.addObject("command", entity);
-			mav.addObject("status", HttpStatus.OK);
 			mav.addObject("roles", roleRepository.findAll());
+			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
 			mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
@@ -143,6 +154,9 @@ public class EmployeeController {
 		try {
 			employee = employeeRepository.save(employee);
 			mav.addObject("employee", employee);
+			mav.addObject("nameResource", "Employee");
+            mav.addObject("linkResource", "/employee");
+            mav.addObject("returnName", "employee");
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			// validação

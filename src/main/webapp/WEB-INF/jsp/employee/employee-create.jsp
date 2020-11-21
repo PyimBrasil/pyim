@@ -64,7 +64,15 @@
 						</form:select>
 					</div>
 				</div>
-				<form:button type="submit" class="mt-2 btn btn-primary btn-lg">Submit Form</form:button>
+				<div class="d-flex mt-2">
+					<div>
+						<form:button type="submit" class="btn btn-primary btn-lg">Submit Form
+						</form:button>
+					</div>
+					<div class="ml-3">
+						<a type="button" class="btn btn-secondary btn-lg" href="/employee">Return</a>
+					</div>
+				</div>
 			</form:form>
 		</div>
 	</div>
