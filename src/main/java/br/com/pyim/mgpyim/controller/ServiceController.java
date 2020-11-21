@@ -69,11 +69,11 @@ public class ServiceController {
         try {
             service = serviceRepository.save(service);
             mav.addObject("service", service);
+            mav.addObject("nameResource", "Service");
+            mav.addObject("linkResource", "/client/"+service.getClient().getId());
+            mav.addObject("returnName", "client");
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            mav.addObject("status", HttpStatus.BAD_REQUEST);
-            mav.addObject("error", e.getMessage());
-
             mav.setViewName("errors\\notFoundResource");
             mav.addObject("error", e.getMessage());
             mav.addObject("nameResource", "Create");

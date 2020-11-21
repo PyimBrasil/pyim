@@ -42,26 +42,18 @@
                     </form:form>
                 </c:when>
                 <c:when test="${status == 'ACCEPTED'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-success border border-dark rounded p-4 text-white">
-                            <p style="font-size: 20px; text-align: center; ">
-                                Service data:
-                            </p>
-                            <p>
-                                Description:
-                                <c:out value="${service.description}" /><br>
-                                Initial Date/Time:
-                                <fmt:formatDate value="${client.initialDateTime}" type="date" pattern="dd/MM/yyyy HH:mm"
-                                    var="initialDateTime" />
-                                <c:out value="${initialDateTime}" /><br>
-                                Number hours of service
-                                <c:out value="${service.numberHoursOfService}" /><br>
-                            </p>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-secondary btn-lg" href="/client/${service.client.id}">Return</a>
-                        </div>
-                    </div>
+                    <tags:_accepted>
+                        <p>
+                            Description:
+                            <c:out value="${service.description}" /><br>
+                            Initial Date/Time:
+                            <fmt:formatDate value="${client.initialDateTime}" type="date" pattern="dd/MM/yyyy HH:mm"
+                                var="initialDateTime" />
+                            <c:out value="${initialDateTime}" /><br>
+                            Number hours of service
+                            <c:out value="${service.numberHoursOfService}" /><br>
+                        </p>
+                    </tags:_accepted>
                 </c:when>
                 <c:otherwise>
 					<div class="d-flex justify-content-center">
