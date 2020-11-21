@@ -73,6 +73,12 @@ public class ServiceController {
         } catch (Exception e) {
             mav.addObject("status", HttpStatus.BAD_REQUEST);
             mav.addObject("error", e.getMessage());
+
+            mav.setViewName("errors\\notFoundResource");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Create");
+            mav.addObject("returnName", "create service");
+            mav.addObject("linkResource", "/service/create?userId="+service.getClient().getId());
         }
         return mav;
     }
