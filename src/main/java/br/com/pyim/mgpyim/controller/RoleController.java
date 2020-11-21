@@ -48,13 +48,15 @@ public class RoleController {
         try {
             role = roleRepository.save(role);
             mav.addObject("role", role);
+            mav.addObject("nameResource", "Role");
+            mav.addObject("linkResource", "/role");
+            mav.addObject("returnName", "role");
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
             mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
             mav.addObject("nameResource", "Role");
             mav.addObject("returnName", "create role");
-            mav.addObject("linkResource", "/role/create");
         }
         return mav;
     }
@@ -67,7 +69,12 @@ public class RoleController {
             Optional<Role> obj = roleRepository.findById(id);
             Role entity = obj.orElseThrow(() -> new ResourceNotFoundException("Role not found"));
             mav.addObject("role", entity);
+            mav.addObject("nameResource", "Role");
+            mav.addObject("linkResource", "/role/delete/" + id + "/result");
+            mav.addObject("linkReturn", "/role");
+            mav.addObject("returnName", "Delete");
             mav.addObject("status", HttpStatus.OK);
+
         } catch (ResourceNotFoundException e) {
             mav.setViewName("errors\\notFoundResource");
             mav.addObject("error", e.getMessage());
@@ -84,13 +91,17 @@ public class RoleController {
         mav.setViewName("role\\role-delete");
         try {
             roleRepository.deleteById(id);
+            mav.addObject("resource", "Delete");
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "role");
+            mav.addObject("linkResource", "/role");
             mav.addObject("status", HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
             mav.addObject("nameResource", "Role");
             mav.addObject("returnName", "delete role");
-            mav.addObject("linkResource", "/role/delete/"+id);
+            mav.addObject("linkResource", "/role/delete/" + id);
         }
         return mav;
     }
@@ -121,13 +132,16 @@ public class RoleController {
         try {
             role = roleRepository.save(role);
             mav.addObject("role", role);
+            mav.addObject("nameResource", "Role");
+            mav.addObject("linkResource", "/role");
+            mav.addObject("returnName", "role");
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
             mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
             mav.addObject("nameResource", "Role");
             mav.addObject("returnName", "edit role");
-            mav.addObject("linkResource", "/role/edit/"+role.getId());
+            mav.addObject("linkResource", "/role/edit/" + role.getId());
         }
         return mav;
     }

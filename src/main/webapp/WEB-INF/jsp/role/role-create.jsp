@@ -11,19 +11,14 @@
         <div class="align-self-center">
             <c:choose>
                 <c:when test="${status == 'ACCEPTED'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-success border border-dark rounded p-4 text-white">
-                            <p style="font-size: 20px; text-align: center; ">
-                                Role data:
-                            </p>
-                            <p>
-                                Id:
-                                <c:out value="${role.id}" /><br>
-                                Description:
-                                <c:out value="${role.description}" /><br>
-                            </p>
-                        </div>
-                    </div>
+                    <tags:_accepted>
+                        <p>
+                            Id:
+                            <c:out value="${role.id}" /><br>
+                            Description:
+                            <c:out value="${role.description}" /><br>
+                        </p>
+                    </tags:_accepted>
                 </c:when>
                 <c:otherwise>
                     <div class="d-flex justify-content-center">
@@ -35,14 +30,19 @@
                                         aria-describedby="description" rows="4" cols="30" />
                                 </div>
                             </div>
-                            <form:button type="submit" class="mt-2 btn btn-primary">Submit Form</form:button>
+                            <div class="d-flex mt-2">
+                                <div>
+                                    <form:button type="submit" class="btn btn-primary btn-lg">Submit Form
+                                    </form:button>
+                                </div>
+                                <div class="ml-3">
+                                    <a type="button" class="btn btn-secondary btn-lg" href="/role">Return</a>
+                                </div>
+                            </div>
                         </form:form>
                     </div>
                 </c:otherwise>
             </c:choose>
-        </div>
-        <div class="align-self-center">
-            <a type="button" class="btn btn-secondary btn-lg" href="/role">Return to Role</a>
         </div>
     </div>
 </tags:_template>

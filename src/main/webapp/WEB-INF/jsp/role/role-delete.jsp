@@ -9,30 +9,18 @@
         <div class="align-self-center">
             <c:choose>
                 <c:when test="${status == 'OK'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-info border border-dark rounded p-4 text-white">
-                            <p style="font-size: 20px; text-align: center; ">
-                                Role data:
-                            </p>
-                            <p>
-                                Id:
-                                <c:out value="${role.id}" /><br>
-                                Description:
-                                <c:out value="${role.description}" /><br>
-                            </p>
-                        </div>
-                        <div class="ml-5 align-self-center">
-                            <a type="button" data-method="delete" class="btn btn-danger btn-lg"
-                                href="/role/delete/${role.id}/result">Delete</a>
-                        </div>
-                    </div>
+                    <tags:_ok>
+                        <p>
+                            Id:
+                            <c:out value="${role.id}" /><br>
+                            Description:
+                            <c:out value="${role.description}" /><br>
+                        </p>
+                    </tags:_ok>
                 </c:when>
                 <c:when test="${status == 'NO_CONTENT'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-success border border-dark rounded p-4" style="max-width: 800px;">
-                            <p class="text-center text-wrap text-white">DELETE SUCCESS</p>
-                        </div>
-                    </div>
+                    <tags:_noContent>
+                    </tags:_noContent>
                 </c:when>
                 <c:otherwise>
                     <div class="d-flex justify-content-center">
@@ -42,9 +30,6 @@
                     </div>
                 </c:otherwise>
             </c:choose>
-        </div>
-        <div class="align-self-center">
-            <a type="button" class="btn btn-primary btn-lg" href="/role/">Return to Role</a>
         </div>
     </div>
 </tags:_template>
