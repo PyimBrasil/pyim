@@ -84,9 +84,11 @@ public class ClientController {
 			mav.addObject("command", client);
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
-			mav.addObject("client.id", client.getId());
-			mav.addObject("status", HttpStatus.BAD_REQUEST);
-			mav.addObject("error", e.getMessage());
+			mav.setViewName("errors\\badRequest");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Edit");
+            mav.addObject("returnName", "edit client");
+            mav.addObject("linkResource", "/client/edit/"+client.getId());
 		}
 		return mav;
 	}

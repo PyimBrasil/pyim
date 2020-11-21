@@ -126,18 +126,6 @@
                         </div>
                     </div>
                 </c:when>
-                <c:when test="${status == 'BAD_REQUEST'}">
-                    <div class="d-flex justify-content-center">
-                        <div class="bg-danger border border-dark rounded p-4" style="max-width: 800px;">
-                            <p class="text-center text-wrap text-white">${status}</p>
-                            <p class="text-center text-wrap text-white">${error}</p>
-                        </div>
-                        <div class="ml-2">
-                            <a type="button" class="btn btn-secondary btn-lg" href="/client/${client.id}">Return to
-                                Home</a>
-                        </div>
-                    </div>
-                </c:when>
                 <c:otherwise>
                     <div class="d-flex justify-content-center">
                         <div class="bg-danger border border-dark rounded p-4" style="max-width: 800px;">
