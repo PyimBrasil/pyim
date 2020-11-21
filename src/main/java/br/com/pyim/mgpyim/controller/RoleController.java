@@ -50,8 +50,11 @@ public class RoleController {
             mav.addObject("role", role);
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            mav.addObject("status", HttpStatus.BAD_REQUEST);
+            mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "create role");
+            mav.addObject("linkResource", "/role/create");
         }
         return mav;
     }
@@ -83,8 +86,11 @@ public class RoleController {
             roleRepository.deleteById(id);
             mav.addObject("status", HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            mav.addObject("status", HttpStatus.BAD_REQUEST);
+            mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "delete role");
+            mav.addObject("linkResource", "/role/delete/"+id);
         }
         return mav;
     }
@@ -117,9 +123,11 @@ public class RoleController {
             mav.addObject("role", role);
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            // validação
-            mav.addObject("status", HttpStatus.BAD_REQUEST);
+            mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "Role");
+            mav.addObject("returnName", "edit role");
+            mav.addObject("linkResource", "/role/edit/"+role.getId());
         }
         return mav;
     }
