@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.pyim.mgpyim.entities.enums.ServiceStatus;
+
 @Entity
 @Table(name = "service")
 public class Service {
@@ -26,6 +28,9 @@ public class Service {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
+
+    @Column(nullable = false)
+    private ServiceStatus serviceStatus;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
@@ -92,6 +97,14 @@ public class Service {
 
     public void setServiceProvider(ServiceProvider serviceProvider) {
         this.serviceProvider = serviceProvider;
+    }
+
+    public ServiceStatus getServiceStatus() {
+        return serviceStatus;
+    }
+
+    public void setServiceStatus(ServiceStatus serviceStatus) {
+        this.serviceStatus = serviceStatus;
     }
 
     @Override

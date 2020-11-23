@@ -433,61 +433,71 @@ INSERT INTO service(
         initial_date_time,
         number_hours_of_service,
         description,
-        client_id
+        client_id,
+        service_status
     )
 VALUES(
         '2020-11-16',
         3,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
-        6
+        6,
+        0
     );
 INSERT INTO service(
         initial_date_time,
         number_hours_of_service,
         description,
-        client_id
+        client_id,
+        service_status
     )
 VALUES(
         '2020-11-16',
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
-        7
+        7,
+        0
     );
 INSERT INTO service(
         initial_date_time,
         number_hours_of_service,
         description,
-        client_id
+        client_id,
+        service_status
     )
 VALUES(
         '2020-11-16',
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
-        8
+        8,
+        0
     );
 INSERT INTO service(
         initial_date_time,
         number_hours_of_service,
         description,
-        client_id
+        client_id,
+        service_status
     )
 VALUES(
         '2020-11-16',
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
-        9
+        9,
+        0
     );
 INSERT INTO service(
         initial_date_time,
         number_hours_of_service,
         description,
-        client_id
+        client_id,
+        service_status
     )
 VALUES(
         '2020-11-16',
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nibh lacus. Nunc lacinia elit in pellentesque lacinia. Nunc vel ipsum id lacus tristique pretium. Vivamus dolor nibh, sodales vel imperdiet imperdiet, vulputate sit amet ex. Quisque porta imperdiet augue vel vestibulum. Etiam pulvinar sodales lacus ut auctor. Suspendisse eget enim a nibh ornare fermentum.',
-        10
+        10,
+        0
     );
 INSERT INTO block_chain (initial_date_time, final_date_time)
 VALUES(

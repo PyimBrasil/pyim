@@ -14,13 +14,13 @@ import javax.persistence.Table;
 @Table(name = "service_provider")
 public class ServiceProvider extends User {
     @Column(columnDefinition = "TEXT", nullable = false, name = "Curriculum_URI")
-    private String CurriculumURI;
+    private String curriculumURI;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String Description;
+    private String description;
 
     @Column(nullable = false)
-    private String Profession;
+    private String profession;
 
     // Associações
     @OneToMany
@@ -34,27 +34,27 @@ public class ServiceProvider extends User {
     }
 
     public String getCurriculumURI() {
-        return CurriculumURI;
+        return curriculumURI;
     }
 
     public void setCurriculumURI(String curriculumURI) {
-        CurriculumURI = curriculumURI;
+        this.curriculumURI = curriculumURI;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getProfession() {
-        return Profession;
+        return profession;
     }
 
     public void setProfession(String profession) {
-        Profession = profession;
+        this.profession = profession;
     }
 
     public Set<Service> getRequestServices() {
