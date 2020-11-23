@@ -22,12 +22,14 @@
                 </c:when>
                 <c:otherwise>
                     <div class="d-flex justify-content-center">
-                        <form:form method="POST" action="/role/create/result">
+                        <form:form method="POST" action="/role/create/result" class="needs-validation"
+                            novalidate="novalidate">
                             <div class="row">
                                 <div class="form-group col">
-                                    <form:label path="description">Description</form:label>
+                                    <form:label path="description">Description *</form:label>
                                     <form:textarea name="description" class="form-control" path="description"
-                                        aria-describedby="description" rows="4" cols="30" />
+                                        aria-describedby="description" rows="3" cols="30" required="required" />
+                                    <form:errors path="description" />
                                 </div>
                             </div>
                             <div class="d-flex mt-2">
@@ -45,4 +47,24 @@
             </c:choose>
         </div>
     </div>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </tags:_template>

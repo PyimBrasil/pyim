@@ -74,7 +74,7 @@ public class ServiceController {
             mav.addObject("returnName", "client");
             mav.addObject("status", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            mav.setViewName("errors\\notFoundResource");
+            mav.setViewName("errors\\badRequest");
             mav.addObject("error", e.getMessage());
             mav.addObject("nameResource", "Create");
             mav.addObject("returnName", "create service");

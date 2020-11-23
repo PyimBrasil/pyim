@@ -3,9 +3,12 @@ package br.com.pyim.mgpyim.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,7 +45,10 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/create/result", method = RequestMethod.POST)
-    public ModelAndView roleCreateResult(@ModelAttribute Role role) {
+    public ModelAndView roleCreateResult(@Valid @ModelAttribute Role role, BindingResult result) {
+        if (result.hasErrors()) {
+            return new ModelAndView("forward:/role/create");
+        }
         ModelAndView mav = new ModelAndView();
         mav.setViewName("role\\role-create");
         try {
