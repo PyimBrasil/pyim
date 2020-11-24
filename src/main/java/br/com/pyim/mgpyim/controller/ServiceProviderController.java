@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import br.com.pyim.mgpyim.controller.exceptions.project.ResourceNotFoundException;
 import br.com.pyim.mgpyim.entities.ServiceProvider;
@@ -51,6 +51,26 @@ public class ServiceProviderController {
             mav.addObject("availableServices", serviceRepository.findAllByServiceStatus(ServiceStatus.PENDING).size());
             mav.addObject("listServicesSize", entity.getRequestServices().size());
             mav.addObject("listServices", entity.getRequestServices());
+            mav.addObject("status", HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            mav.setViewName("errors\\notFoundResource");
+            mav.addObject("error", e.getMessage());
+            mav.addObject("nameResource", "ServiceProvider");
+            mav.addObject("returnName", "Home");
+            mav.addObject("linkResource", "/");
+        }
+        return mav;
+    }
+
+    @RequestMapping(value = "/{id}/availableServices", method = RequestMethod.GET)
+    public ModelAndView serviceProviderAvailableServices(@PathVariable Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("serviceProvider\\serviceProvider-availableServices");
+        try {
+            Optional<ServiceProvider> obj = serviceProviderRepository.findById(id);
+            ServiceProvider entity = obj.orElseThrow(() -> new ResourceNotFoundException("Service Provider not found"));
+            mav.addObject("serviceProvider", entity);
+            mav.addObject("availableServices", serviceRepository.findAllByServiceStatus(ServiceStatus.PENDING));
             mav.addObject("status", HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
             mav.setViewName("errors\\notFoundResource");
@@ -101,4 +121,11 @@ public class ServiceProviderController {
         }
         return mav;
     }
+    @RequestMapping("/{serviceProviderId}/service/{serviceId}/details")
+	public RedirectView redirectServiceDetail(RedirectAttributes attributes, @PathVariable Long serviceProviderId,
+			@PathVariable Long serviceId) {
+		attributes.addAttribute("serviceId", serviceId);
+		attributes.addAttribute("serviceProviderId", serviceProviderId);
+		return new RedirectView("/service/details");
+	}
 }

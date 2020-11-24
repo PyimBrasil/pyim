@@ -55,7 +55,7 @@
 												data-href="/client/${client.id}/service/${item.id}/details">
 												<td class="col-2">
 													<p>
-														<c:out value="${item.serviceProvider}" />
+														<c:out value="${item.serviceProvider.name}" />
 													</p>
 												</td>
 												<td class="col-5">

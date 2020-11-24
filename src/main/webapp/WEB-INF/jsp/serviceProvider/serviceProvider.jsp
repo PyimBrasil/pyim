@@ -11,9 +11,9 @@
                 <div>
                     <div class="d-flex bd-highlight mt-4">
                         <h3 class="flex-grow-1 bd-highlight text-center">Welcome ${serviceProvider.name}</h3>
-                        <button type="button" class="btn btn-warning">
+                        <a type="button" class="btn btn-warning" href="${serviceProvider.id}/availableServices">
                             AVAILABLE SERVICES<span class="badge badge-light ml-1">${availableServices}</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="my-3 d-flex row justify-content-around">
                         <div class="col-2">
@@ -34,10 +34,11 @@
                         <div class="col-10">
                             <c:if test="${listServicesSize == 0}">
                                 <div class="container d-flex justify-content-center border">
-                                        <a style="font-weight: 500;font-size: 20px;" href=""> You do not have services,
-                                            search for available
-                                            services?
-                                        </a>
+                                    <a style="font-weight: 500;font-size: 20px;"
+                                        href="${serviceProvider.id}/availableServices"> You do not have services,
+                                        search for available
+                                        services?
+                                    </a>
                                 </div>
                             </c:if>
                             <c:if test="${listServicesSize != 0}">
@@ -49,20 +50,30 @@
                                                     <th scope="col" class="col-12">MY SERVICES</th>
                                                 </tr>
                                                 <tr class="row">
+                                                    <th scope="col" class="col-2">Status</th>
                                                     <th scope="col" class="col-6">Description</th>
-                                                    <th scope="col" class="col-3">Initial Date/Time</th>
-                                                    <th scope="col" class="col-3">Final Date/Time</th>
+                                                    <th scope="col" class="col-2">Initial Date/Time</th>
+                                                    <th scope="col" class="col-2">Final Date/Time</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <c:forEach var="item" items="${listServices}">
-                                                    <tr class="row" scope="row">
+                                                    <tr style="cursor: pointer;" class="row clickable-row" scope="row"
+                                                        data-href="/serviceProvider/${serviceProvider.id}/service/${item.id}/details">
+                                                        <td
+                                                            class="col-2 d-flex justify-content-center align-items-center">
+                                                            <h4>
+                                                                <span class="badge">
+                                                                    <c:out value="${item.serviceStatus}" />
+                                                                </span>
+                                                            </h4>
+                                                        </td>
                                                         <td class="col-6">
                                                             <p>
                                                                 <c:out value="${item.description}" />
                                                             </p>
                                                         </td>
-                                                        <td class="col-3">
+                                                        <td class="col-2">
                                                             <fmt:parseDate value="${item.initialDateTime}" type="date"
                                                                 pattern="yyyy-MM-dd HH:mm" var="parsedDate" />
                                                             <fmt:formatDate value="${parsedDate}" type="date"
@@ -71,7 +82,7 @@
                                                                 <c:out value="${stdDatum}" />
                                                             </p>
                                                         </td>
-                                                        <td class="col-3">
+                                                        <td class="col-2">
                                                             <fmt:parseDate value="${item.finalDateTime}" type="date"
                                                                 pattern="yyyy-MM-dd HH:mm" var="parsedDate" />
                                                             <fmt:formatDate value="${parsedDate}" type="date"
@@ -103,4 +114,28 @@
             </c:otherwise>
         </c:choose>
     </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        $(document).ready(function () {
+            var elements = document.getElementsByClassName('badge');
+            for (var i = 0; i < elements.length; ++i) {
+                if (elements[i].innerText === 'PENDING') {
+                    $(elements[i]).addClass("badge-warning");
+                } else if (elements[i].innerText === 'COMPLETE') {
+                    $(elements[i]).addClass("badge-success");
+                } else if (elements[i].innerText === 'CANCELED') {
+                    $(elements[i]).addClass("badge-danger");
+                } else if (elements[i].innerText === 'IN_PROGRESS') {
+                    $(elements[i]).addClass("badge-info");
+                } else if (elements[i].innerText === 'ALLOCATED') {
+                    $(elements[i]).addClass("badge-primary");
+                }
+            }
+        });
+    </script>
 </tags:_template>

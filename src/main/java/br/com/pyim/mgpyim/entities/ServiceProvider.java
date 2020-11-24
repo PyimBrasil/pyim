@@ -23,10 +23,10 @@ public class ServiceProvider extends User {
     private String profession;
 
     // Associações
-    @OneToMany
+    @OneToMany(targetEntity = Service.class)
     private Set<Service> requestServices = new HashSet<Service>();
 
-    @OneToMany(mappedBy="service_provider")
+    @OneToMany(mappedBy = "service_provider")
     private List<SmartContract> smartcontracts = new ArrayList<SmartContract>();
 
     public ServiceProvider() {
