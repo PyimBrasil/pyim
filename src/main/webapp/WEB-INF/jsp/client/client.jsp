@@ -43,20 +43,22 @@
 										</tr>
 										<tr class="row">
 											<th scope="col" class="col-2">Service Provider</th>
-											<th scope="col" class="col-6">Description</th>
+											<th scope="col" class="col-5">Description</th>
 											<th scope="col" class="col-2">Initial Date/Time</th>
 											<th scope="col" class="col-2">Final Date/Time</th>
+											<th scope="col" class="col-1">Actions</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="item" items="${listServices}">
-											<tr class="row" scope="row">
+											<tr style="cursor: pointer;" class="row clickable-row" scope="row"
+												data-href="/client/${client.id}/service/${item.id}/details">
 												<td class="col-2">
 													<p>
 														<c:out value="${item.serviceProvider}" />
 													</p>
 												</td>
-												<td class="col-6">
+												<td class="col-5">
 													<p>
 														<c:out value="${item.description}" />
 													</p>
@@ -79,7 +81,12 @@
 														<c:out value="${stdDatum}" />
 													</p>
 												</td>
-											</tr>
+												<td class="col-1">
+													<div class="flex-d">
+														<a type="button" class="btn btn-outline-danger"
+															href="/service/delete/?userId=${client.id}&serviceId=${item.id}">Delete</a>
+													</div>
+												</td>
 										</c:forEach>
 									</tbody>
 								</table>
@@ -100,4 +107,11 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".clickable-row").click(function () {
+				window.location = $(this).data("href");
+			});
+		});
+	</script>
 </tags:_template>

@@ -3,3 +3,15 @@
 table {
     word-break: break-word;
 }
+
+
+.text-to-description{
+    margin: 0;
+    padding: .35rem;
+}
+
+.text-to-description-title{
+    font-weight: bold;
+    margin: 0;
+    padding: .35rem;
+}

@@ -47,7 +47,7 @@ public class ClientController {
 			mav.addObject("listServices", entity.getService());
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-            mav.setViewName("errors\\notFoundResource");
+			mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
 			mav.addObject("nameResource", "Client");
 			mav.addObject("returnName", "Home");
@@ -66,7 +66,7 @@ public class ClientController {
 			mav.addObject("command", entity);
 			mav.addObject("status", HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
-            mav.setViewName("errors\\notFoundResource");
+			mav.setViewName("errors\\notFoundResource");
 			mav.addObject("error", e.getMessage());
 			mav.addObject("nameResource", "Client");
 			mav.addObject("returnName", "Home");
@@ -83,22 +83,29 @@ public class ClientController {
 			client = clientRepository.save(client);
 			mav.addObject("command", client);
 			mav.addObject("nameResource", "Client");
-            mav.addObject("linkResource", "/client/"+client.getId());
-            mav.addObject("returnName", "client");
+			mav.addObject("linkResource", "/client/" + client.getId());
+			mav.addObject("returnName", "client");
 			mav.addObject("status", HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			mav.setViewName("errors\\badRequest");
-            mav.addObject("error", e.getMessage());
-            mav.addObject("nameResource", "Edit");
-            mav.addObject("returnName", "edit client");
-            mav.addObject("linkResource", "/client/edit/"+client.getId());
+			mav.addObject("error", e.getMessage());
+			mav.addObject("nameResource", "Edit");
+			mav.addObject("returnName", "edit client");
+			mav.addObject("linkResource", "/client/edit/" + client.getId());
 		}
 		return mav;
 	}
 
-	@GetMapping("/{id}/service/create")
-	public RedirectView redirectServiceCreate(RedirectAttributes attributes, @PathVariable Long id) {
-		attributes.addAttribute("userId", id);
+	@GetMapping("/{userId}/service/create")
+	public RedirectView redirectServiceCreate(RedirectAttributes attributes, @PathVariable Long userId) {
+		attributes.addAttribute("userId", userId);
 		return new RedirectView("/service/create");
+	}
+	@GetMapping("/{userId}/service/{serviceId}/details")
+	public RedirectView redirectServiceDetail(RedirectAttributes attributes, @PathVariable Long userId,
+			@PathVariable Long serviceId) {
+		attributes.addAttribute("userId", userId);
+		attributes.addAttribute("serviceId", serviceId);
+		return new RedirectView("/service/details");
 	}
 }

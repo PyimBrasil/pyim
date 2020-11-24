@@ -1,5 +1,6 @@
 package br.com.pyim.mgpyim.entities;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import br.com.pyim.mgpyim.entities.enums.ServiceStatus;
@@ -105,6 +108,24 @@ public class Service {
 
     public void setServiceStatus(ServiceStatus serviceStatus) {
         this.serviceStatus = serviceStatus;
+    }
+
+    private Date addHoursToJavaUtilDate(Date date, int hours) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR_OF_DAY, hours);
+        return calendar.getTime();
+    }
+
+    @PrePersist
+    private void prePersist() {
+        serviceStatus = ServiceStatus.PENDING;
+        finalDateTime = addHoursToJavaUtilDate(initialDateTime, numberHoursOfService);
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        finalDateTime = addHoursToJavaUtilDate(initialDateTime, numberHoursOfService);
     }
 
     @Override
